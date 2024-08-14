@@ -18,7 +18,7 @@ async def start(message: Message):
                                      voice=message.voice)
 
     user_text = await speech_to_text(user_voice_path)
-    print(user_text)
+    await message.answer(user_text)
     os.remove(user_voice_path)
 '''
     assistant_text = await proceed_query(user_text)
