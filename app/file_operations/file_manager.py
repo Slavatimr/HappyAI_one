@@ -7,7 +7,7 @@ from aiogram.types import FSInputFile
 from aiogram import F
 
 from app.main import bot
-from app.openai.assistants_and_threads_creation import create_thread, create_assistant
+from app.openai_.assistants_and_threads_creation import create_thread, create_assistant
 
 
 async def download(user_id: int, message_id: int, voice: F.voice) -> str:

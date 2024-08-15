@@ -8,4 +8,5 @@ router = Router()
 
 @router.message(Command('start'))
 async def start(message: Message):
-    await message.answer("какой то приветственный текст")
+    await message.answer(text="Ура! Я закончил, годная задача, мне понравилась. Все довольно просто, "
+                              "но документация не самая понятная у опенэйай. Пожалуй, напишу статью на хабр.")

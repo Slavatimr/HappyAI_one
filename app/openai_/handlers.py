@@ -37,7 +37,7 @@ async def proceed_query(user_text: str, chat_id: str) -> str:
     while run.status == "queued" or run.status == "in_progress":
         await asyncio.sleep(0.1)
 
-    messages = await client.beta.threads.messages.list(thread_id=thread_id    )
+    messages = await client.beta.threads.messages.list(thread_id=thread_id)
     return messages.data[0].content[0].text.value
 
 

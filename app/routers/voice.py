@@ -5,7 +5,7 @@ from aiogram.methods import SendVoice, SendMessage
 from aiogram.types import Message
 
 from app.file_operations.file_manager import download, upload
-from app.openai.handlers import speech_to_text, text_to_speech, proceed_query
+from app.openai_.handlers import speech_to_text, text_to_speech, proceed_query
 
 router = Router()
 
