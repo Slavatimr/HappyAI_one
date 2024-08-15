@@ -1,7 +1,7 @@
 import os
 
 from aiogram import Router, F
-from aiogram.methods import SendVoice
+from aiogram.methods import SendVoice, SendMessage
 from aiogram.types import Message
 
 from app.file_operations.file_manager import download, upload
@@ -18,13 +18,14 @@ async def start(message: Message):
                                      voice=message.voice)
 
     user_text = await speech_to_text(user_voice_path)
-    await message.answer(user_text)
     os.remove(user_voice_path)
-'''
-    assistant_text = await proceed_query(user_text)
 
-    assistant_voice_path = await text_to_speech(assistant_text, user_voice_path)
+    assistant_text = await proceed_query(user_text=user_text,
+                                         chat_id=str(message.chat.id))
+
+    assistant_voice_path = await text_to_speech(assistant_text=assistant_text,
+                                                assistant_voice_path=user_voice_path)
 
     file = await upload(assistant_voice_path)
+    await message.answer_voice(voice=file)
     os.remove(assistant_voice_path)
-    return SendVoice(chat_id=message.chat.id, voice=file)'''
