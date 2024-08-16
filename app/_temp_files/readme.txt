@@ -1,1 +1,1 @@
-Folder for temporary files(voice)
+Папка `_temp_files` нужна  для хранения временных файлов.
